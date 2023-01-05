@@ -7,7 +7,6 @@
     <title>Pionner Bank</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
-  </head>
 </head>
 <body>
     <div id="login-area">
@@ -63,6 +62,7 @@
     
 </body>
 <script>
+
     // login button event handler
     const loginBtn = document.getElementById("loginBtn");
     loginBtn.addEventListener("click", function(){
@@ -76,11 +76,13 @@
     depositBtn.addEventListener("click", function(){
         //const depositAmount = document.getElementById("depositAmount").value;
         const depositNumber = getInputNumber("depositAmount");
+
         updateSpanText("currentDeposit", depositNumber);
+        document.getElementById("depositAmount").value ="";
         
         // Balance
         updateSpanText("currentBalance", depositNumber);
-        document.getElementById("depositAmount").value ="";
+        
 
         //const currentDeposit = document.getElementById("currentDeposit").innerText;
         //const currentDepositNumber = parseFloat(currentDeposit);
@@ -104,7 +106,7 @@
         // withdraw
         updateSpanText("currentWithdraw", withdrawNumber);
         document.getElementById("withdrawAmount").value = "";
-
+        
         //const currentWithdraw = document.getElementById("currentWithdraw").innerText;
         //const currentWithdrawNumber = parseFloat(currentWithdraw);
         //const totalWithdraw = withdrawNumber + currentWithdrawNumber;
@@ -131,9 +133,8 @@
         const currentText = document.getElementById(id).innerText;
         const currentNumber = parseFloat(currentText);
         const totalBalance = balance + currentNumber;
-        document.getElementById(current).innerText = totalBalance;
+        document.getElementById(id).innerText = totalBalance;
 
     }
-
 </script>
 </html>
